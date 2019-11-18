@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../dist/dev/bundle.js"></script>
+</head>
+<body>
+<app></app>
+<script id="t1" type="text/html">
+    <div class="dfd df">
+        <div style="color: red">{{text1}}</div>
+        {{o.text2}}
+        <div dsl-if="isShow">{{text3}}</div>
+        <div dsl-for="item in array1" dsl-if="isShow">
+            {{item}}
+        </div>
+        <div dsl-html="htmlTemplate">不会显式这句话</div>
+    </div>
+</script>
+
+<script>
+var qv = new QV({
+    el: "app",
+    template: "#t1",
+    data: {
+        text1: "普通字符串求值",
+        o: {
+            text2: "普通对象求值",
+        },
+        isShow: true,
+        text3: "这是条件显示",
+        array1: ['循环显示1', '循环显示2', '循环显示3'],
+        htmlTemplate: "<span style='color: blue'>这是段内联html</span>",
+    }
+});
+</script>
+</body>
+</html>
