@@ -8,14 +8,14 @@
 <body>
 <app></app>
 <script id="t1" type="text/html">
-    <div class="dfd df">
+    <div>
         <div style="color: red">{{text1}}</div>
         {{o.text2}}
         <div dsl-if="isShow">{{text3}}</div>
         <div dsl-for="item in array1" dsl-if="isShow">
             {{item}}
         </div>
-        <div dsl-html="htmlTemplate">不会显式这句话</div>
+        <div dsl-html="htmlTemplate">不会显示这句话</div>
     </div>
 </script>
 
