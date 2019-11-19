@@ -4,7 +4,7 @@ var attrRE = /([:\w-]+)|['"]{1}([^'"]*)['"]{1}/g;
 // void elements as listed here:
 // http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
 
-import dsl from "../../dsl/index";
+import dslMap from "../../common/dslMap";
 
 var lookup = (Object.create) ? Object.create(null) : {};
 lookup.area = true;
@@ -37,8 +37,7 @@ export default function (tag) {
     };
 
     tag.replace(attrRE, function (match) {
-
-        if (dsl.dslMap[match]) {
+        if (dslMap[match]) {
            res.dsl.push(match);
         }
 
